@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdarg.h>
-#include <stdlib.h>
 
 /**
  * _printf - print a string
@@ -19,7 +18,7 @@ int _printf(const char *format, ...)
 	int stp = 0;
 	int retval;
 	va_list arglist;
-	char *string = NULL; 
+	char *string; 
 	va_start(arglist, format);
 
 
