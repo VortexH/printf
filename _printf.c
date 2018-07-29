@@ -19,7 +19,8 @@ int _printf(const char *format, ...)
 	int stp = 0;
 	int retval;
 	va_list arglist;
-	char *string = NULL; 
+	char *string = NULL;
+
 	va_start(arglist, format);
 
 
