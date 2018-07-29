@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "holberton.h"
 
 /**
@@ -10,13 +11,13 @@
  * Return: Length of the string - int
 */
 
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int i = 0;
 
 	if (s)
 	{
-		while (s[i] != '\n')
+		while (s[i] != '\0')
 		{
 			i++;
 
