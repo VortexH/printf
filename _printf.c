@@ -18,9 +18,9 @@ int _printf(const char *format, ...)
 	int stp = 0;
 	int retval;
 	va_list arglist;
-	char *string; 
-	va_start(arglist, format);
+	char *string;
 
+	va_start(arglist, format);
 
 	while (format[i])
 	{
