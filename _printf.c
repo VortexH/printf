@@ -33,14 +33,13 @@ int _printf(const char *format, ...)
 		k++;
 	}
 
-	while (format[i])
+	for (i = 0; format[i]; i++)
 	{
 		if (format[i] == '%')
 		{
 			stp = 0;
-			i++;
 
-			switch (format[i])
+			switch (format[i + 1])
 			{
 				case 'd':
 				case 'i':
@@ -82,33 +81,17 @@ int _printf(const char *format, ...)
 					break;
 
 				case '%':
-					stp++;
-					while (format[i] == '%')
-					{
-						stp++;
-						i++;
-						if (stp % 2)
-							_putchar('%');
-						if (stp % 2)
-							retval++;
-					}
-//					stp = stp / 2;
-//					while (stp--)
-//					{
-//						_putchar('%');
-//						retval++;
-//					}
-					_putchar('%');
+					i++;
+					_putchar(format[i]);
 					retval++;
 					break;
 
+				case ' ':
+					return (-1);
+				case '\0':
+					return (-1);
 				default:
-					//if (format[i - 1] == '%')
-					//{
-				//		_putchar('%');
-				//		retval++;
-				//	}
-					break;
+					return (-1);
 
 			}
 
@@ -118,7 +101,6 @@ int _printf(const char *format, ...)
 		else
 		{
 			_putchar(format[i]);
-			i++;
 			retval++;
 		}
 	}
