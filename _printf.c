@@ -55,33 +55,22 @@ int _printf(const char *format, ...)
 					}
 					else
 					{
-						exit(0);
+						exit(98);
 					}
 
 				case 's':
 					d++;
-					if (d < numDirects)
+					stp = 0;
+					string = va_arg(arglist, char *);
+					if (d > numDirects)
+						exit(98);
+					while (string[stp] != '\0')
 					{
-
-						stp = 0;
-						string = va_arg(arglist, char *);
-						while (string[stp] != '\0')
-						{
-							_putchar(string[stp]);
-							stp++;
-							retval++;
-						}
-						i++;
-						break;
+						_putchar(string[stp]);
+						stp++;
+						retval++;
 					}
-					else
-					{
-						exit(0);
-					}
-				case '%':
-					_putchar(format[i]);
 					i++;
-					retval++;
 					break;
 
 				case '%':
