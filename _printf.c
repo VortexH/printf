@@ -15,9 +15,6 @@
 int _printf(const char *format, ...)
 {
 	int i = 0;
-	int k = 0;
-	int numDirects = 0;
-	int d = 0;
 	int stp = 0;
 	int retval = 0;
 	va_list arglist;
@@ -27,14 +24,8 @@ int _printf(const char *format, ...)
 		return (-1);
 	va_start(arglist, format);
 
-	k = 0;
-	while (format[k] != '\0')
-	{
-		if (format[k] == '%' && (format[k + 1] == 'c' || format[k + 1] == 's'))
-			numDirects++;
-		k++;
-	}
-
+	if (!format)
+		return (-1);
 
 	for (i = 0; format[i]; i++)
 	{
@@ -46,20 +37,17 @@ int _printf(const char *format, ...)
 			{
 				case 'd':
 				case 'i':
-					d++;
 					retval = _putint(va_arg(arglist, int));
 					i++;
 					break;
 
 				case 'c':
-					d++;
 					_putchar(va_arg(arglist, int));
 					i++;
 					retval++;
 					break;
 
 				case 's':
-					d++;
 					stp = 0;
 					string = va_arg(arglist, char *);
 					if (!string)
@@ -89,8 +77,6 @@ int _printf(const char *format, ...)
 					return (-1);
 
 			}
-
-
 		}
 
 		else
@@ -98,10 +84,9 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			retval++;
 		}
-	}
 
-		va_end(arglist);
-		return (retval);
+	}
+	return (retval);
 }
 
 
