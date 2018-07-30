@@ -23,6 +23,8 @@ int _printf(const char *format, ...)
 	va_list arglist;
 	char *string;
 
+	if (!format)
+		return (-1);
 	va_start(arglist, format);
 
 	k = 0;
@@ -33,8 +35,6 @@ int _printf(const char *format, ...)
 		k++;
 	}
 
-	if (!format)
-		return (-1);
 
 	for (i = 0; format[i]; i++)
 	{
@@ -47,20 +47,12 @@ int _printf(const char *format, ...)
 				case 'd':
 				case 'i':
 					d++;
-					/*
-					*if (d > numDirects)
-					*	return (-1);
-					*/
 					retval = _putint(va_arg(arglist, int));
 					i++;
 					break;
 
 				case 'c':
 					d++;
-					/*
-					*if (d > numDirects)
-					*	return (-1);
-					*/
 					_putchar(va_arg(arglist, int));
 					i++;
 					retval++;
@@ -68,20 +60,18 @@ int _printf(const char *format, ...)
 
 				case 's':
 					d++;
-					/*
-					*if (d > numDirects)
-					*	return (-1);
-					*/
 					stp = 0;
 					string = va_arg(arglist, char *);
+					if (!string)
+						return (-1);
 					while (string[stp] != '\0')
 					{
 						_putchar(string[stp]);
 						stp++;
 						retval++;
 					}
-					if (stp == 0)
-						return (-1);
+					if (!smp)
+						return(-1);
 					i++;
 					break;
 
