@@ -58,24 +58,19 @@ int _printf(const char *format, ...)
 
 				case 's':
 					d++;
-					if (d < numDirects)
-					{
-
-						stp = 0;
-						string = va_arg(arglist, char *);
-						while (string[stp] != '\0')
-						{
-							_putchar(string[stp]);
-							stp++;
-							retval++;
-						}
-						i++;
-						break;
-					}
-					else
-					{
+					if (d > numDirects)
 						return (-1);
+
+					stp = 0;
+					string = va_arg(arglist, char *);
+					while (string[stp] != '\0')
+					{
+						_putchar(string[stp]);
+						stp++;
+						retval++;
 					}
+					i++;
+					break;
 
 				case '%':
 					while (format[i] == '%')
