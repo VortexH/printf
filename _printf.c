@@ -39,10 +39,16 @@ int _printf(const char *format, ...)
 					break;
 
 				case 'c':
-					_putchar(va_arg(arglist, int));
-					i++;
-					retval++;
-					break;
+					stp = va_arg(arglist, int);
+					if (stp)
+					{
+						_putchar(stp);
+						i++;
+						retval++;
+						break;
+					}
+					else
+						return (-1);
 
 				case 's':
 					stp = 0;
