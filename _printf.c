@@ -58,7 +58,7 @@ int _printf(const char *format, ...)
 						stp++;
 						retval++;
 					}
-					if (!smp)
+					if (!stp)
 						return(-1);
 					i++;
 					break;
