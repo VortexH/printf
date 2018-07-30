@@ -44,23 +44,21 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					d++;
-					if (d < numDirects)
-					{
-						_putchar(va_arg(arglist, int));
-						i++;
-						retval++;
-						break;
-					}
-					else
-					{
-						return (-1);
-					}
+					/*
+					*if (d > numDirects)
+					*	return (-1);
+					*/
+					_putchar(va_arg(arglist, int));
+					i++;
+					retval++;
+					break;
 
 				case 's':
 					d++;
-					if (d > numDirects)
-						return (-1);
-
+					/*
+					*if (d > numDirects)
+					*	return (-1);
+					*/
 					stp = 0;
 					string = va_arg(arglist, char *);
 					while (string[stp] != '\0')
