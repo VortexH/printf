@@ -1,6 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
 
 /**
@@ -55,7 +53,7 @@ int _printf(const char *format, ...)
 					}
 					else
 					{
-						exit(0);
+						return (-1);
 					}
 
 				case 's':
@@ -76,13 +74,8 @@ int _printf(const char *format, ...)
 					}
 					else
 					{
-						exit(0);
+						return (-1);
 					}
-				case '%':
-					_putchar(format[i]);
-					i++;
-					retval++;
-					break;
 
 				case '%':
 					while (format[i] == '%')
