@@ -83,7 +83,7 @@ int _printf(const char *format, ...)
 					return (-1);
 				default:
 					return (-1);
-			
+
 			}
 		}
 
@@ -92,7 +92,7 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			retval++;
 		}
-		
+
 	}
 	return (retval);
 }
