@@ -82,27 +82,32 @@ int _printf(const char *format, ...)
 					break;
 
 				case '%':
+					stp++;
 					while (format[i] == '%')
 					{
 						stp++;
 						i++;
+						if (stp % 2)
+							_putchar('%');
+						if (stp % 2)
+							retval++;
 					}
-					stp = stp / 2;
-					while (stp--)
-					{
-						_putchar('%');
-						retval++;
-					}
+//					stp = stp / 2;
+//					while (stp--)
+//					{
+//						_putchar('%');
+//						retval++;
+//					}
 					_putchar('%');
 					retval++;
 					break;
 
 				default:
-					if (format[i - 1] == '%')
-					{
-						_putchar('%');
-						retval++;
-					}
+					//if (format[i - 1] == '%')
+					//{
+				//		_putchar('%');
+				//		retval++;
+				//	}
 					break;
 
 			}
