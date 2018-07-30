@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	int stp = 0;
-	int retval;
+	int retval = 0;
 	va_list arglist;
 	char *string;
 
@@ -41,7 +41,8 @@ int _printf(const char *format, ...)
 					{
 						_putchar(string[stp]);
 						stp++;
-						retval++;
+						if (!(format[i] > 7 &&  format[i] < 13))
+							retval++;
 					}
 					i++;
 					break;
@@ -58,7 +59,8 @@ int _printf(const char *format, ...)
 		{
 			_putchar(format[i]);
 			i++;
-			retval++;
+			if (!(format[i] > 7 &&  format[i] < 13))
+				retval++;
 		}
 	}
 
