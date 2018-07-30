@@ -78,11 +78,6 @@ int _printf(const char *format, ...)
 					{
 						exit(0);
 					}
-				case '%':
-					_putchar(format[i]);
-					i++;
-					retval++;
-					break;
 
 				case '%':
 					while (format[i] == '%')
@@ -123,8 +118,6 @@ int _printf(const char *format, ...)
 
 		va_end(arglist);
 		return (retval);
-
-
 }
 
 
