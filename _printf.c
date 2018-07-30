@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdlib.h>
 #include <stdarg.h>
 
 /**
@@ -24,9 +25,6 @@ int _printf(const char *format, ...)
 		return (-1);
 	va_start(arglist, format);
 
-	if (!format)
-		return (-1);
-
 	for (i = 0; format[i]; i++)
 	{
 		if (format[i] == '%')
@@ -42,7 +40,10 @@ int _printf(const char *format, ...)
 					break;
 
 				case 'c':
-					_putchar(va_arg(arglist, int));
+					string = va_arg(arglist, int);
+					if (string == NULL)
+						return (-1);
+					_putchar(string);
 					i++;
 					retval++;
 					break;
