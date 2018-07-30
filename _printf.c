@@ -17,24 +17,12 @@
 int _printf(const char *format, ...)
 {
 	int i = 0;
-	int k = 0;
-	int numDirects = 0;
-	int d = 0;
 	int stp = 0;
 	int retval = 0;
 	va_list arglist;
 	char *string;
 
 	va_start(arglist, format);
-
-	k = 0;
-	while (format[k] != '\0')
-	{
-		if (format[k] == '%' && (format[k + 1] == 'c' || format[k + 1] == 's'))
-			numDirects++;
-		k++;
-	}
-
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -45,25 +33,15 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					d++;
-					if (d < numDirects)
-					{
-						_putchar(va_arg(arglist, int));
-						i++;
-						retval++;
-						break;
-					}
-					else
-					{
-						exit(98);
-					}
+					_putchar(va_arg(arglist, int));
+					i++;
+					retval++;
+					break;
+					
 
 				case 's':
-					d++;
 					stp = 0;
 					string = va_arg(arglist, char *);
-					if (d > numDirects)
-						exit(98);
 					while (string[stp] != '\0')
 					{
 						_putchar(string[stp]);
