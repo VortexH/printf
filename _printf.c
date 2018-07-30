@@ -1,4 +1,6 @@
 #include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <stdarg.h>
 
 /**
@@ -14,16 +16,24 @@
 
 int _printf(const char *format, ...)
 {
-	/* format string index */
 	int i = 0;
-	/* arg string index */
+	int k = 0;
+	int numDirects = 0;
+	int d = 0;
 	int stp = 0;
-	/* putchar'd count */
 	int retval = 0;
 	va_list arglist;
 	char *string;
 
 	va_start(arglist, format);
+
+	k = 0;
+	while (format[k] != '\0')
+	{
+		if (format[k] == '%' && (format[k + 1] == 'c' || format[k + 1] == 's'))
+			numDirects++;
+		k++;
+	}
 
 	while (format[i])
 	{
@@ -31,23 +41,47 @@ int _printf(const char *format, ...)
 		{
 			stp = 0;
 			i++;
+
 			switch (format[i])
 			{
 				case 'c':
-					_putchar(va_arg(arglist, int));
-					i++;
-					retval++;
-					break;
+					d++;
+					if (d < numDirects)
+					{
+						_putchar(va_arg(arglist, int));
+						i++;
+						retval++;
+						break;
+					}
+					else
+					{
+						exit(0);
+					}
 
 				case 's':
-					string = va_arg(arglist, char *);
-					while (string[stp] != '\0')
+					d++;
+					if (d < numDirects)
 					{
-						_putchar(string[stp]);
-						stp++;
-						retval++;
+
+						stp = 0;
+						string = va_arg(arglist, char *);
+						while (string[stp] != '\0')
+						{
+							_putchar(string[stp]);
+							stp++;
+							retval++;
+						}
+						i++;
+						break;
 					}
+					else
+					{
+						exit(0);
+					}
+				case '%':
+					_putchar(format[i]);
 					i++;
+					retval++;
 					break;
 
 				case '%':
@@ -87,8 +121,12 @@ int _printf(const char *format, ...)
 		}
 	}
 
-	va_end(arglist);
-	return (retval);
+		va_end(arglist);
+		return (retval);
+
 
 }
+
+
+
 
