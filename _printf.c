@@ -1,6 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
 
 /**
@@ -21,93 +19,124 @@ int _printf(const char *format, ...)
 	int retval = 0;
 	va_list arglist;
 	char *string;
-	int nPerc;
 
 	va_start(arglist, format);
 
-	if (format != NULL)
+	if (!format)
+		return (-1);
+
+	for (i = 0; format[i]; i++)
 	{
-		while (format [i] != '\0')
+		if (format[i] == '%')
 		{
-			if (format[i] == '%')
+			stp = 0;
+
+			switch (format[i + 1])
 			{
-				i++;
-				switch (format[i])
-				{
-					case 'c':
-						_putchar(va_arg(arglist, int));
-						i++;
+				case 'd':
+				case 'i':
+					/*
+					*if (d > numDirects)
+					*	return (-1);
+					*/
+					retval = _putint(va_arg(arglist, int));
+					i++;
+					break;
+
+				case 'c':
+					/*
+					*if (d > numDirects)
+					*	return (-1);
+					*/
+					_putchar(va_arg(arglist, int));
+					i++;
+					retval++;
+					break;
+
+				case 's':
+					/*
+					*if (d > numDirects)
+					*	return (-1);
+					*/
+					stp = 0;
+					string = va_arg(arglist, char *);
+					while (string[stp] != '\0')
+					{
+						_putchar(string[stp]);
+						stp++;
 						retval++;
-						break;
+					}
+					if (stp == 0)
+						return (-1);
+					i++;
+					break;
 
-					case 's':
-						string = va_arg(arglist, char *);
-						stp = 0;
-						while (string[stp] != '\0')
-						{
-							_putchar(string[stp]);
-							retval++;
-							stp++;
-						}
-						i++;
-						break;
+				case '%':
+					i++;
+					_putchar(format[i]);
+					retval++;
+					break;
 
-					case '%':
-						stp = 0;
-						nPerc = 0;
-						while (format[stp] != '%')
-						{
-							nPerc++;
-							stp++;
-							i++;
-						}
-						nPerc++;
-						if (nPerc % 2 == 0)
-						{
-							nPerc /= 2;
-							while(nPerc <= 0)
-							{
-								_putchar(format[stp]);
-								retval++;
-								nPerc--;
-								stp--;
-							}
-							i += nPerc - 1;
-						}
-						else
-						{
-							exit(100);
-						}
-
-					case ' ':
-						exit(100);
-						break;
-
-					case '\0':
-						exit(100);
-						break;
-				}
-			}
-
-			else
-			{
-				_putchar(format[i]);
-				i++;
-				retval++;
+				case ' ':
+					return (-1);
+				case '\0':
+					return (-1);
+				default:
+					return (-1);
+			
 			}
 		}
+
+		else
+		{
+			_putchar(format[i]);
+			retval++;
+		}
 		
-		return (retval);
 	}
-	return (-1);
+	return (retval);
 }
 
 
 
+/**
+ * _putint - print a int
+ * @num: int to print
+ *
+ * Return: Number of characters printed (excluding the null byte)
+*/
 
-							
-							
-							
-			
-	
+int _putint(int num)
+{
+	int i, tmp, retval;
 
+	retval = 0;
+
+	tmp = num;
+	i = 1;
+	while (tmp / 10)
+	{
+		tmp /= 10;
+		i *= 10;
+	}
+	while (i)
+	{
+		tmp = num / i;
+		if (tmp < 0)
+		{
+			_putchar('-');
+			retval++;
+			tmp *= -1;
+			num = num % i * -1;
+		}
+		else
+		{
+			num = num % i;
+		}
+
+		_putchar('0' + tmp);
+		retval++;
+		i /= 10;
+	}
+	return (retval);
+}
