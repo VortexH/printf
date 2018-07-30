@@ -59,7 +59,7 @@ int _printf(const char *format, ...)
 						retval++;
 					}
 					if (!stp)
-						return(-1);
+						return (-1);
 					i++;
 					break;
 
