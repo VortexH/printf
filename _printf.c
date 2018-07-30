@@ -1,6 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
 
 /**
@@ -55,29 +53,24 @@ int _printf(const char *format, ...)
 					}
 					else
 					{
-						exit(0);
+						return (-1);
 					}
 
 				case 's':
 					d++;
-					if (d < numDirects)
-					{
+					if (d > numDirects)
+						return (-1);
 
-						stp = 0;
-						string = va_arg(arglist, char *);
-						while (string[stp] != '\0')
-						{
-							_putchar(string[stp]);
-							stp++;
-							retval++;
-						}
-						i++;
-						break;
-					}
-					else
+					stp = 0;
+					string = va_arg(arglist, char *);
+					while (string[stp] != '\0')
 					{
-						exit(0);
+						_putchar(string[stp]);
+						stp++;
+						retval++;
 					}
+					i++;
+					break;
 
 				case '%':
 					while (format[i] == '%')
