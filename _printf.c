@@ -14,8 +14,11 @@
 
 int _printf(const char *format, ...)
 {
+	/* format string index */
 	int i = 0;
+	/* arg string index */
 	int stp = 0;
+	/* putchar'd count */
 	int retval = 0;
 	va_list arglist;
 	char *string;
@@ -36,13 +39,13 @@ int _printf(const char *format, ...)
 					break;
 
 				case 's':
+					stp = 0;
 					string = va_arg(arglist, char *);
 					while (string[stp] != '\0')
 					{
 						_putchar(string[stp]);
 						stp++;
-						if (!(format[i] > 7 &&  format[i] < 13))
-							retval++;
+						retval++;
 					}
 					i++;
 					break;
@@ -59,8 +62,7 @@ int _printf(const char *format, ...)
 		{
 			_putchar(format[i]);
 			i++;
-			if (!(format[i] > 7 &&  format[i] < 13))
-				retval++;
+			retval++;
 		}
 	}
 
