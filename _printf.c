@@ -33,6 +33,9 @@ int _printf(const char *format, ...)
 		k++;
 	}
 
+	if (!format)
+		return (-1);
+
 	for (i = 0; format[i]; i++)
 	{
 		if (format[i] == '%')
