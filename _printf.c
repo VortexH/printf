@@ -42,16 +42,16 @@ int _printf(const char *format, ...)
 
 			switch (format[i])
 			{
-                case 'd':
-                case 'i':
-                    d++;
-                    /*
-                    *if (d > numDirects)
-                    *   return (-1);
-                    */
-                    retval = _putint(va_arg(arglist, int));
-                    i++;
-                    break;
+				case 'd':
+				case 'i':
+					d++;
+					/*
+					*if (d > numDirects)
+					*	return (-1);
+					*/
+					retval = _putint(va_arg(arglist, int));
+					i++;
+					break;
 
 				case 'c':
 					d++;
@@ -139,7 +139,7 @@ int _putint(int num)
 
 	tmp = num;
 	i = 1;
-	while (tmp/10)
+	while (tmp / 10)
 	{
 		tmp /= 10;
 		i *= 10;
@@ -147,7 +147,7 @@ int _putint(int num)
 	while (i)
 	{
 		tmp = num / i;
-	    if (tmp < 0)
+		if (tmp < 0)
 		{
 			_putchar('-');
 			retval++;
