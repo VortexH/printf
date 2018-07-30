@@ -21,80 +21,93 @@ int _printf(const char *format, ...)
 	int retval = 0;
 	va_list arglist;
 	char *string;
+	int nPerc;
 
 	va_start(arglist, format);
 
-	while (format[i])
+	if (format != NULL)
 	{
-		if (format[i] == '%')
+		while (format [i] != '\0')
 		{
-			stp = 0;
-			i++;
-
-			switch (format[i])
+			if (format[i] == '%')
 			{
-				case 'c':
-					_putchar(va_arg(arglist, int));
-					i++;
-					retval++;
-					break;
-
-
-				case 's':
-					stp = 0;
-					string = va_arg(arglist, char *);
-					while (string[stp] != '\0')
-					{
-						_putchar(string[stp]);
-						stp++;
-						retval++;
-					}
-					i++;
-					break;
-
-				case '%':
-					while (format[i] == '%')
-					{
-						stp++;
+				i++;
+				switch (format[i])
+				{
+					case 'c':
+						_putchar(va_arg(arglist, int));
 						i++;
-					}
-					stp = stp / 2;
-					while (stp--)
-					{
-						_putchar('%');
 						retval++;
-					}
-					_putchar('%');
-					retval++;
-					break;
+						break;
 
-				default:
-					if (format[i - 1] == '%')
-					{
-						_putchar('%');
-						retval++;
-					}
-					break;
+					case 's':
+						string = va_arg(arglist, char *);
+						stp = 0;
+						while (string[stp] != '\0')
+						{
+							_putchar(string[stp]);
+							retval++;
+							stp++;
+						}
+						i++;
+						break;
 
+					case '%':
+						stp = 0;
+						nPerc = 0;
+						while (format[stp] != '%')
+						{
+							nPerc++;
+							stp++;
+							i++;
+						}
+						nPerc++;
+						if (nPerc % 2 == 0)
+						{
+							nPerc /= 2;
+							while(nPerc <= 0)
+							{
+								_putchar(format[stp]);
+								retval++;
+								nPerc--;
+								stp--;
+							}
+							i += nPerc - 1;
+						}
+						else
+						{
+							exit(100);
+						}
+
+					case ' ':
+						exit(100);
+						break;
+
+					case '\0':
+						exit(100);
+						break;
+				}
 			}
 
-
+			else
+			{
+				_putchar(format[i]);
+				i++;
+				retval++;
+			}
 		}
-
-		else
-		{
-			_putchar(format[i]);
-			i++;
-			retval++;
-		}
-	}
-
-		va_end(arglist);
+		
 		return (retval);
-
-
+	}
+	return (-1);
 }
 
 
 
+
+							
+							
+							
+			
+	
 
