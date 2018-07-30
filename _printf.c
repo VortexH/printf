@@ -55,11 +55,11 @@ int _printf(const char *format, ...)
 					{
 						stp++;
 						i++;
-					}
-					if (stp > 1)
-					{
-						_putchar('%');
-						retval++;
+						if (stp % 2 == 0)
+						{
+							_putchar('%');
+							retval++;
+						}
 					}
 					_putchar('%');
 					retval++;
