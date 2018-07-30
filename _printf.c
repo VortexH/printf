@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdlib.h>
 #include <stdarg.h>
 
 /**
@@ -40,10 +39,10 @@ int _printf(const char *format, ...)
 					break;
 
 				case 'c':
-					string = va_arg(arglist, int);
-					if (string == NULL)
+					stp = va_arg(arglist, int);
+					if (stp != 0)
 						return (-1);
-					_putchar(string);
+					_putchar(stp);
 					i++;
 					retval++;
 					break;
