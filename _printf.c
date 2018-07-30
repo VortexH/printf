@@ -23,6 +23,7 @@ int _printf(const char *format, ...)
 	char *string;
 
 	va_start(arglist, format);
+
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -37,7 +38,7 @@ int _printf(const char *format, ...)
 					i++;
 					retval++;
 					break;
-					
+
 
 				case 's':
 					stp = 0;
