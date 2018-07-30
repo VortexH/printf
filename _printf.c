@@ -66,7 +66,8 @@ int _printf(const char *format, ...)
 		}
 	}
 
-		return (retval);
+	va_end(arglist);
+	return (retval);
 
 }
 
