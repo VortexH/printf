@@ -77,6 +77,8 @@ int _printf(const char *format, ...)
 						stp++;
 						retval++;
 					}
+					if (!stp)
+						return (-1);
 					i++;
 					break;
 
