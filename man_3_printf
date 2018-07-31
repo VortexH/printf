@@ -18,6 +18,6 @@ FORMAT controls the output as in C printf. Interpreted sequences are:
 
 %i, %d	 prints an integer
 .SH BUGS
-Prints the % and fllowing char if format sequence is invalid
+Prints the % and following char if format sequence is invalid
 .SH AUTHOR
-Written by Hemant Heer and Marus Farioletti
+Written by Hemant Heer and Marius Farioletti
