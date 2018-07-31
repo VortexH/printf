@@ -40,15 +40,10 @@ int _printf(const char *format, ...)
 
 				case 'c':
 					stp = va_arg(arglist, int);
-					if (stp)
-					{
-						_putchar(stp);
-						i++;
-						retval++;
-						break;
-					}
-					else
-						return (-1);
+					_putchar(stp);
+					i++;
+					retval++;
+					break;
 
 				case 's':
 					stp = 0;
