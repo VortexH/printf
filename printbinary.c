@@ -16,7 +16,9 @@ int _printbinary(va_list valist)
 {
 	unsigned int num = va_arg(valist, unsigned int);
 	int retval = 0;
-	int i = 0;
 
-	return (retval);
+	return (convint(num));
 }
+
+int convint(unsigned int num)
+{
