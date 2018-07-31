@@ -6,10 +6,11 @@
  * Return: Number of characters printed (excluding the null byte)
 */
 
-int _putint(int num)
+int _putint(va_list valist)
 {
-	int i, tmp, retval;
+	int i, tmp, num, retval;
 
+	num = va_arg(valist, int);
 	retval = 0;
 
 	tmp = num;

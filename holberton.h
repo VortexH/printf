@@ -10,6 +10,8 @@ int _printf(const char *format, ...);
 int _printchar(va_list valist);
 int _printstring(va_list valist);
 int (*getfunc(char s))(va_list);
+int _putint(va_list valist);
+int _putchar(char c);
 
 /**
  * struct specs - contains the specifier and the associated function being

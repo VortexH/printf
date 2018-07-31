@@ -19,6 +19,8 @@ int (*getfunc(char s))(va_list)
 
 	specdo arr[] = { {'c', _printchar},
 			{'s', _printstring},
+			{'d', _putint},
+			{'i', _putint},
 			{'\0', NULL}};
 
 	while (arr[i].s != '\0')
