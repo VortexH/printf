@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * _putint - print a int
- * @num: int to print
+ * @valist: arglist to source our int to print
  *
  * Return: Number of characters printed (excluding the null byte)
 */
