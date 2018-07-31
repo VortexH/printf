@@ -23,14 +23,18 @@ int (*getfunc(char s))(va_list)
 			{'i', _putint},
 			{'\0', NULL}};
 
+	if (s == ' ' || s == '\0')
+		return (-1);
+
 	while (arr[i].s != '\0')
 	{
 		if (s == arr[i].s)
 			return (arr[i].prntr);
 		i++;
 	}
-
-	return (0);
+	_putchar('%');
+	_putchar(s);
+	return (2);
 
 
 }
