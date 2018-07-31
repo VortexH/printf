@@ -31,7 +31,7 @@ int (*getfunc(char s))(va_list)
 			return (arr[i].prntr);
 		i++;
 	}
-	return (0);
+	return (_negativeone);
 
 
 }

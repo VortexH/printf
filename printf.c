@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			funcval = getfunc(format[i])(arglist);
-			if (funcval)
+			if (funcval != -1)
 				retval += funcval;
 			else
 			{
