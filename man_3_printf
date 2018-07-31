@@ -1,0 +1,23 @@
+.TH _PRINTF 1 "31 July 2018" "HOLBERTON printf 1.0" "Printf Man Page"
+.SH NAME
+.B _printf
+- format and print data
+.SH SYNOPSIS
+.B printf
+.I FORMAT [ARGUMENT]
+.SH DESCRIPTION
+Print ARGUMENT(s) according to FORMAT
+
+FORMAT controls the output as in C printf. Interpreted sequences are:
+
+%%	 a single %
+
+%c	 prints a single character
+
+%s	 prints a string
+
+%i, %d	 prints an integer
+.SH BUGS
+Prints the % and fllowing char if format sequence is invalid
+.SH AUTHOR
+Written by Hemant Heer and Marus Farioletti
