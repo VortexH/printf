@@ -33,8 +33,6 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case '%':
-					if (format[i + 1] == '%')
-						return (-1);
 					_putchar('%');
 					retval++;
 					break;
