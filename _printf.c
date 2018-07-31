@@ -14,9 +14,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int stp = 0;
-	int retval = 0;
+	int i, stp, retval = 0;
 	va_list arglist;
 	char *string;
 
