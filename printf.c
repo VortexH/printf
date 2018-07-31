@@ -30,6 +30,10 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == ' ' || format[i] == '\0')
+			{
+				return (-1);
+			}
 			funcval = getfunc(format[i])(arglist);
 			if (funcval != -1)
 				retval += funcval;
