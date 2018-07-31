@@ -74,7 +74,8 @@ int _printf(const char *format, ...)
 					break;
 
 				case ' ':
-					_putchar(format[i - 1]);
+					return (-1);
+
 				case '\0':
 					return (-1);
 				default:
