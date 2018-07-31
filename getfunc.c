@@ -23,8 +23,6 @@ int (*getfunc(char s))(va_list)
 			{'i', _putint},
 			{'\0', NULL}};
 
-	if (s == ' ' || s == '\0')
-		return (-1);
 
 	while (arr[i].s != '\0')
 	{
@@ -32,9 +30,7 @@ int (*getfunc(char s))(va_list)
 			return (arr[i].prntr);
 		i++;
 	}
-	_putchar('%');
-	_putchar(s);
-	return (2);
+	return (0);
 
 
 }
