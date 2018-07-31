@@ -30,15 +30,26 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == '%')
+			switch (format[i])
 			{
-				if (format[i + 1] == '%')
-					return (-1);
-				_putchar('%');
-				retval++;
+				case '%':
+					if (format[i + 1] == '%')
+						return (-1);
+					_putchar('%');
+					retval++;
+					break;
+				case 'c':
+				case 's':
+				case 'd':
+				case 'i':
+				case '\0':
+					retval += getfunc(format[i])(arglist);
+					break;
+				default:
+					_putchar('%');
+					_putchar(format[i]);
+					retval += 2;
 			}
-			else
-				retval += getfunc(format[i])(arglist);
 		}
 		else
 		{
