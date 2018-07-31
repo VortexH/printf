@@ -17,7 +17,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, retval = 0;
+	int i = 0, funcval, retval = 0;
 	va_list arglist;
 
 	if (!format)
@@ -30,25 +30,14 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			switch (format[i])
+			funcval = getfunc(format[i])(arglist);
+			if (funcval)
+				retval += funcval;
+			else
 			{
-				case 'c':
-				case 's':
-				case 'd':
-				case 'i':
-					retval += getfunc(format[i])(arglist);
-					break;
-				case '%':
-					_putchar('%');
-					retval++;
-					break;
-				case ' ':
-				case '\0':
-					return (-1);
-				default:
-					_putchar('%');
-					_putchar(format[i]);
-					retval += 2;
+				_putchar('%');
+				_putchar(format[i]);
+				retval += 2;
 			}
 		}
 		else

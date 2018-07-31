@@ -12,7 +12,7 @@ int _printstring(va_list valist);
 int (*getfunc(char s))(va_list);
 int _putint(va_list valist);
 int _putchar(char c);
-
+int _percent(va_list valist);
 
 /**
  * struct specs - contains the specifier and the associated function being

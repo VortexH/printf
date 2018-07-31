@@ -21,6 +21,7 @@ int (*getfunc(char s))(va_list)
 			{'s', _printstring},
 			{'d', _putint},
 			{'i', _putint},
+			{'%', _percent},
 			{'\0', NULL}};
 
 
