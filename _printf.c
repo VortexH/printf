@@ -54,15 +54,21 @@ int _printf(const char *format, ...)
 					stp = 0;
 					string = va_arg(arglist, char *);
 					if (!string)
-						return (-1);
+					{
+						_putchar('(');
+						_putchar('n');
+						_putchar('u');
+						_putchar('l');
+						_putchar('l');
+						_putchar(')');
+						retval += 6;
+					}
 					while (string[stp] != '\0')
 					{
 						_putchar(string[stp]);
 						stp++;
 						retval++;
 					}
-					if (!stp)
-						return (-1);
 					i++;
 					break;
 
