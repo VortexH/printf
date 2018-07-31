@@ -22,7 +22,10 @@ int _printf(const char *format, ...)
 
 	if (!format)
 		return (-1);
+
 	va_start(arglist, format);
+	if (!arglist)
+		return (-1);
 
 	for (i = 0; format[i]; i++)
 	{
@@ -73,7 +76,7 @@ int _printf(const char *format, ...)
 					break;
 
 				case ' ':
-					return (-1);
+					_putchar(format[i - 1]);
 				case '\0':
 					return (-1);
 				default:
