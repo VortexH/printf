@@ -42,7 +42,6 @@ int _printf(const char *format, ...)
 				case 's':
 				case 'd':
 				case 'i':
-				case '\0':
 					retval += getfunc(format[i])(arglist);
 					break;
 				default:
