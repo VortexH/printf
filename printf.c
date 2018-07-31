@@ -41,6 +41,7 @@ int _printf(const char *format, ...)
 				case '%':
 					_putchar('%');
 					retval++;
+					break;
 				case ' ':
 				case '\0':
 					return (-1);
