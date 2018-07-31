@@ -24,8 +24,6 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(arglist, format);
-	if (!arglist)
-		return (-1);
 
 	for (i = 0; format[i]; i++)
 	{
