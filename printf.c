@@ -45,6 +45,7 @@ int _printf(const char *format, ...)
 					retval += getfunc(format[i])(arglist);
 					break;
 				case ' ':
+				case '\0':
 					return (-1);
 				default:
 					_putchar('%');
