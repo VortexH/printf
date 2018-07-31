@@ -30,7 +30,14 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			retval += getfunc(format[i])(arglist);
+			if (format[i] == '%')
+			{
+				if (format[i + 1] == '%')
+					return(-1);
+				_putchar('%');
+			}
+			else
+				retval += getfunc(format[i])(arglist);
 		}
 		else
 		{
