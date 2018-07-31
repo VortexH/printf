@@ -39,12 +39,9 @@ int _printf(const char *format, ...)
 
 				case 'c':
 					stp = va_arg(arglist, int);
-					if (stp)
-					{
-						_putchar(stp);
-						i++;
-						retval++;
-					}
+					_putchar(stp);
+					i++;
+					retval++;
 					break;
 
 				case 's':
