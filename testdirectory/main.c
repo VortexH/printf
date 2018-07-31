@@ -30,7 +30,7 @@ int main(void)
 
 	*/
 	_printf("My first initial is: %c\n", 'H');
-	_printf("My first initial is: %c %s\n",'H', NULL);
+	_printf("My first initial is: %c %s %\n",'H', NULL);
 //	printf("String:[%%%%]\n");
 	/*
 	_printf("Address:[%p]\n", addr);
