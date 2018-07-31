@@ -56,7 +56,6 @@ int _printf(const char *format, ...)
 						_putchar('l');
 						_putchar('l');
 						_putchar(')');
-						retval += 6;
 					}
 					while (string[stp] != '\0')
 					{
