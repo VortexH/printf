@@ -21,7 +21,6 @@ int (*getfunc(char s))(va_list)
 			{'s', _printstring},
 			{'d', _putint},
 			{'i', _putint},
-			{' ', NULL},
 			{'\0', NULL}};
 
 	while (arr[i].s != '\0')
