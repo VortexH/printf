@@ -60,6 +60,7 @@ It's easy to think about the individual characters of the resultant binary repre
 With this memory allocated, push characters into positions in memory in the order that they appear in the calculations and append a null byte at the end.
 
 Use this null byte to our advantage, by calculating length and printing the string in reverse.
+
 # Developers
 - Marius Farioletti
 - Hemant Heer
