@@ -23,22 +23,19 @@ int _printrot13(va_list arglist)
 	i = 0;
 	if (!(string))
 		string = "(null)";
+	while (string[i])
 	{
-		while (string[i])
+		for (j = 0; abc[j] != '\0'; j++)
 		{
-			for (j = 0; abc[j] != '\0'; j++)
+			if (string[i] == abc[j])
 			{
-				if (string[i] == abc[j])
-				{
-					_putchar(rot[j]);
-					i++;
-					break;
-				}
+				_putchar(rot[j]);
+				i++;
+				break;
 			}
-			_putchar(string[i]);
-			i++;
 		}
+		_putchar(string[i]);
+		i++;
 	}
-
 	return (i);
 }
