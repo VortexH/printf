@@ -2,7 +2,7 @@
 
 # Description
 printf is a complex function that parses a format string for certain specifiers and essentially pastes content\n
-from arguments that match the specifier. Each specifier corresponds to the a specific argument that matches that type. Print regular characters as is, but print an argument when a directive (%) appears in the format string.
+from arguments that match the specifier. Each specifier corresponds to the a specific argument that matches that type. Print regular characters as is, but print an argument when a directive (%) appears in the format string. The goal of the project was to match the functionality of printf and we've made some progress towards that goal. Further work is needed to implement the WiP specifiers.
 
 ## Function prototype
 - int \_printf(const char \*format, ...)
