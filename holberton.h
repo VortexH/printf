@@ -17,6 +17,9 @@ int _negativeone(va_list valist);
 int _printbinary(va_list valist);
 int _printrevstring(va_list valist);
 int _strlen(char *s);
+int _printrot13(va_list arglist);
+
+
 /**
  * struct specs - contains the specifier and the associated function being
  * called.

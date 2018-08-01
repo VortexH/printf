@@ -23,6 +23,7 @@ int (*getfunc(char s))(va_list)
 			{'i', _putint},
 			{'%', _percent},
 			{'r', _printrevstring},
+			{'R', _printrot13},
 			{'\0', NULL}};
 
 
