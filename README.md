@@ -2,11 +2,11 @@
 
 # Description
 printf is a complex function that parses a format string for certain specifiers and essentially pastes content\n
-from arguments that match the specifier. Each specifier corresponds to the a specific argument that matches that type
+from arguments that match the specifier. Each specifier corresponds to the a specific argument that matches that type. Print regular characters as is, but print an argument when a directive (%) appears in the format string.
 
 ## Function prototype
 - int \_printf(const char \*format, ...)
-- \_printf is a variadic function which takes in a variable number of arguments requiring macros such as (va\_start, va\_end,va\_arg, va\_list) to print such arguments.
+- \_printf is a variadic function which takes in a variable number of arguments requiring macros such as (va\_start, va\_end,va\_arg, va\_list) to print such arguments. 
 
 # Specifiers included
 - %c
@@ -28,6 +28,19 @@ prints a string in reverse
 - %R
 using the rot13 cipher, converts each character to the appropriate character from the rot13 string
 
+# WiP Specifiers 
+- u, o, x, X
+- S
+- p
+- l
+- h
+
+# WiP Flag characters 
+- +
+- space
+- #
+- 0
+- -
 
 # Included functions
 Each function called, returns the number of characters printed to stdout.
@@ -47,12 +60,6 @@ It's easy to think about the individual characters of the resultant binary repre
 With this memory allocated, push characters into positions in memory in the order that they appear in the calculations and append a null byte at the end.
 
 Use this null byte to our advantage, by calculating length and printing the string in reverse.
-
-
-##
-
-##
-
 # Developers
 - Marius Farioletti
 - Hemant Heer
