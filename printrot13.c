@@ -21,7 +21,8 @@ int _printrot13(va_list arglist)
 	char *rot = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	i = 0;
-	if (string)
+	if (!(string))
+		string = "(null)";
 	{
 		while (string[i])
 		{
@@ -37,14 +38,6 @@ int _printrot13(va_list arglist)
 			_putchar(string[i]);
 			i++;
 		}
-	}
-	else
-	{
-		string = "(null)";
-		while (string[i])
-			i++;
-
-		write(1, string, i);
 	}
 
 	return (i);
