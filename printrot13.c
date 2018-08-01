@@ -16,7 +16,7 @@
 int _printrot13(va_list arglist)
 {
 	char *string = va_arg(arglist, char *);
-	int i, j;
+	int i, j, f;
 	char *abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *rot = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
@@ -25,17 +25,22 @@ int _printrot13(va_list arglist)
 		string = "(null)";
 	while (string[i])
 	{
+		f = 0;
 		for (j = 0; abc[j] != '\0'; j++)
 		{
 			if (string[i] == abc[j])
 			{
 				_putchar(rot[j]);
 				i++;
+				f = 1;
 				break;
 			}
 		}
-		_putchar(string[i]);
-		i++;
+		if (!f)
+		{
+			_putchar(string[i]);
+			i++;
+		}
 	}
 	return (i);
 }
