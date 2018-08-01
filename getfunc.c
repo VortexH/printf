@@ -22,6 +22,7 @@ int (*getfunc(char s))(va_list)
 			{'d', _putint},
 			{'i', _putint},
 			{'%', _percent},
+			{'b', _printbinary},
 			{'r', _printrevstring},
 			{'R', _printrot13},
 			{'\0', NULL}};
