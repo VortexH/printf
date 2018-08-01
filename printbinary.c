@@ -10,7 +10,6 @@
  * Description: unsigned ints are converted to binary in the function
  *
  * Return: type int - number of characters printed
-*/
 
 int _printbinary(va_list valist)
 {
@@ -22,3 +21,4 @@ int _printbinary(va_list valist)
 
 int convint(unsigned int num)
 {
+*/
