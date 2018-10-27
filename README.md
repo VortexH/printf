@@ -61,12 +61,10 @@ With this memory allocated, push characters into positions in memory in the orde
 
 Use this null byte to our advantage, by calculating length and printing the string in reverse.
 
-# Developers
-- Marius Farioletti
-- Hemant Heer
-
-# Contact information
-- Hemant Heer @hemant\_heer
-- Marius Farioletti @ThrownBlown
+## Authors
+Name | Github Link | Twitter
+-------|---------------|-----
+Marius Farioletti | https://github.com/thrownblown| https://twitter.com/thrownblown
+Hemant Heer | https://github.com/VortexH | https://twitter.com/hemant_heer
 
 
